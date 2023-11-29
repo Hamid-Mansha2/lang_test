@@ -4,7 +4,7 @@ before_install:
   - sudo add-apt-repository ppa:ondrej/php -y
   - sudo apt-get update
   - sudo apt-get install -y php7.3
+  - phpenv global 7.3
 
 script:
   - php --version
-
