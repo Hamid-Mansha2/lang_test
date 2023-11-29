@@ -2,14 +2,15 @@ dist: focal
 
 language: php
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y software-properties-common
+  - sudo add-apt-repository ppa:ondrej/php
+  - sudo apt-get update
+  - sudo apt-get install -y php7.3
+
 php:
   - 7.3
 
-before_script:
-  - sudo apt-get install -y php7.3
-
 script:
   - php -v
-  - # Add your test commands here
-
-# Add additional configuration as needed
