@@ -6,10 +6,10 @@ php:
   - 7.3
 
 before_script:
-  - sudo apt-cache search php  # Print available PHP versions
-  - php -v  # Print current PHP version
-  - phpenv versions  # List available PHP versions
-  - phpenv global 7.3  # Try setting the version
+  - sudo apt-get install -y php7.3
 
 script:
-  - true
+  - php -v
+  - # Add your test commands here
+
+# Add additional configuration as needed
