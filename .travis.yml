@@ -1,0 +1,9 @@
+dist: focal
+
+language: php
+
+php:
+  - 7.3
+
+script:
+  - php -v
