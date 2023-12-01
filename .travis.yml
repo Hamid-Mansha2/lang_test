@@ -1,22 +1,12 @@
-dist: focal
-
+language: ruby
+dist: bionic
+branches:
+  only:
+    - main
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y build-essential libxml2-dev
-
-install:
-  # Download and extract PHP 7.3
-  - wget https://www.php.net/distributions/php-7.3.*/tar.gz -O php-7.3.tar.gz
-  - tar -xzvf php-7.3.tar.gz
-  - cd php-7.3.*
-
-  # Configure, make, and install PHP
-  - ./configure
-  - make
-  - sudo make install
-
-  # Go back to the project root directory
-  - cd $TRAVIS_BUILD_DIR
-
+  - eval $(ssh-agent -s)
+  - ssh-add - <<< $debase_deploy_key
+  - sudo rm -f /etc/apt/sources.list.d/pgdg.list
+  - rvm use 2.4.0 --install --binary --fuzzy
 script:
-  - php --version
+  - bundle install
